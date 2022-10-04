@@ -40,7 +40,7 @@ function Header() {
           </svg>
           <span>Panier</span>
         </button>
-        <button className="btn">
+        <button className="btn btn-secondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

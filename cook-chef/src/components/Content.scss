@@ -1,0 +1,25 @@
+.main {
+    background: #F7FAFC;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    &-container {
+        width: 1200px;
+        max-width: 95%;
+    }
+
+    &-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-gap: 1rem;
+        // background: #fff;
+        // border-radius: 1rem;
+        padding: 0 0 2rem 0;
+    }
+
+    h1 {
+        font-size: calc(1.5rem + 1vw);
+        font-weight: 500;
+    }
+}

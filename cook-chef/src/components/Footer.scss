@@ -1,10 +1,13 @@
 .footer {
-    background: #37BCF8;
-    border-top: 2px solid #10172a;
+    background: #10172a;
+    border-top: 1px solid #37BCF8;
     p{
         text-align: center;
+        font-weight: 500;
+        color: #F7FAFC;
         a {
-            font-weight: 500;
+            font-weight: 700;
+            text-decoration: underline;
         }
     }
 }
