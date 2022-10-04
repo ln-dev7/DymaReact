@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import Hello from './Hello'
 
 function App() {
