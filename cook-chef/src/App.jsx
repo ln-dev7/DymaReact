@@ -1,10 +1,16 @@
-function App() {
+import './App.scss'
+import Content from "./components/Content";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
+function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div className="d-flex flex-column app-container">
+      <Header />
+      <Content />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

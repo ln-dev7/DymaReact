@@ -1,0 +1,23 @@
+.header {
+    padding: 1rem;
+
+    &-menu {
+        width: 30px;
+        cursor: pointer;
+    }
+
+    .logo {
+        font-weight: 400;
+        font-size: 1.8rem;
+        span {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+    }
+
+    button span {
+        @media screen and (max-width: 540px) {
+            display: none;
+        }
+    }
+}
