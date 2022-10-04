@@ -7,16 +7,19 @@ function Articles({ display }) {
       title: "Article 1",
       content:
         "ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+      read: false,
     },
     {
       id: 2,
       title: "Article 2",
       content: "Lorem ipsum dolor sit amet adipisicing elit. Quisquam, quod.",
+      read: false,
     },
     {
       id: 3,
       title: "Article 3",
       content: "dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+      read: true,
     },
   ];
 
@@ -32,6 +35,18 @@ function Articles({ display }) {
             </div>
           );
         })}
+      </div>
+      <div style={{backgroundColor: "#0B1C2E"}}>
+        {arr
+          .filter((article) => article.read === true)
+          .map((article) => {
+            return (
+              <div key={article.id}>
+                <h3>{article.title}</h3>
+                <p>{article.content}</p>
+              </div>
+            );
+          })}
       </div>
       <div>
         {display ? (
