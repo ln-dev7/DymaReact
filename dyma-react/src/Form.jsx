@@ -6,7 +6,12 @@ function Form() {
     age: null,
   });
 
-  const [userList, setUserList] = useState([]);
+  const [userList, setUserList] = useState([
+    {
+      name: "Leonel",
+      age: 18,
+    },
+  ]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -42,6 +47,8 @@ function Form() {
     setUserList([...userList].sort((a, b) => a.name.localeCompare(b.name)));
   };
 
+  const handleEdit = (index) => {};
+
   return (
     <div>
       <form>
@@ -60,23 +67,29 @@ function Form() {
         <button onClick={handleClick}>Envoyer</button>
       </form>
       <div
-      style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        gap: "1rem",
-      }}
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          gap: "1rem",
+        }}
       >
         <button onClick={handleSortAge}>Trier la liste par age</button>
         <button onClick={handleSortName}>Trier la liste par nom</button>
       </div>
+
       <div>
         {userList.map((user, index) => (
           <h3
             key={index}
             style={{ backgroundColor: "#2096F3", padding: "25px" }}
           >
-            {user.name} - {user.age}
+            <span
+              //   onClick={openModalEdit}
+              style={{ backgroundColor: "#111", padding: "10px" }}
+            >
+              {user.name} - {user.age}
+            </span>
             <span
               onClick={(e) => handleDeleteUser(index)}
               style={{
