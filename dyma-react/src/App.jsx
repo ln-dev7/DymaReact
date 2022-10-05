@@ -5,6 +5,7 @@ import Articles from "./components/Articles";
 import Counter from "./Counter";
 import Form from "./Form";
 import Hello from "./Hello";
+import TodoApp from "./TodoApp/TodoApp";
 
 function App() {
   console.log("render app");
@@ -22,6 +23,9 @@ function App() {
   return (
     <div className="App">
       <div>
+        <TodoApp />
+        <hr />
+        <hr />
         <Form />
         <hr />
         <Button onClick={handleClick} />
