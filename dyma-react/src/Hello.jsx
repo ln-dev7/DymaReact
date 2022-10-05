@@ -7,7 +7,7 @@ function Hello(props) {
         {/* <h1>Hello {name}</h1>
         <h3>Age : {age}</h3> */}
         <Greeting {...props} >
-            <button>Hello</button>
+          Je suis un enfant
         </Greeting>
     </div>
   )
