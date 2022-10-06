@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
 
-function TodoItem() {
+function TodoItem({ todo, deleteTodo }) {
+  const handleDelete = () => {
+    deleteTodo(todo.id);
+  };
   return (
-    <div>TodoItem</div>
-  )
+    <li className="todo-item">
+      <span>{todo.content}</span>
+      <button>Valider</button>
+      <button>Modifier</button>
+      <button onClick={handleDelete}>Supprimer</button>
+    </li>
+  );
 }
 
-export default TodoItem
+export default TodoItem;
