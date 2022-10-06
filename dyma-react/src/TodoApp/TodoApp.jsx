@@ -21,12 +21,45 @@ function TodoApp() {
     seTodoList(todoList.filter((todo) => todo.id !== id));
   };
 
+  const toggleTodo = (id) => {
+    seTodoList(
+      todoList.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            done: !todo.done,
+          };
+        }
+        return todo;
+      })
+    );
+  };
+
+  const toggleTodoEdit = (id) => {
+    seTodoList(
+      todoList.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            edit: !todo.edit,
+          };
+        }
+        return todo;
+      })
+    );
+  };
+
   return (
     <div>
       <h1>CHAP 9 - TODOLIST</h1>
       <div>
         <AddTodo addTodo={addTodo} />
-        <TodoList todoList={todoList} deleteTodo={deleteTodo} />
+        <TodoList
+          todoList={todoList}
+          deleteTodo={deleteTodo}
+          toggleTodo={toggleTodo}
+          toggleTodoEdit={toggleTodoEdit}
+        />
       </div>
     </div>
   );

@@ -1,12 +1,23 @@
 import React from "react";
+import EditTodo from "./EditTodo";
 import TodoItem from "./TodoItem";
 
-function TodoList({ todoList, deleteTodo }) {
+function TodoList({ todoList, deleteTodo, toggleTodo, toggleTodoEdit }) {
   return todoList.length ? (
     <ul>
-      {todoList.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} />
-      ))}
+      {todoList.map((todo) =>
+        todo.edit ? (
+          <EditTodo key={todo.id} />
+        ) : (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            toggleTodoEdit={toggleTodoEdit}
+            deleteTodo={deleteTodo}
+            toggleTodo={toggleTodo}
+          />
+        )
+      )}
     </ul>
   ) : (
     <p>Aucune todo pour le moment</p>
