@@ -4,7 +4,7 @@ import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
 
 function TodoApp() {
-  const [todoList, seTodoList] = useState([]);
+  const [todoList, setTodoList] = useState([]);
 
   const addTodo = (content) => {
     const todo = {
@@ -14,15 +14,15 @@ function TodoApp() {
       edit: false,
     };
 
-    seTodoList([...todoList, todo]);
+    setTodoList([...todoList, todo]);
   };
 
   const deleteTodo = (id) => {
-    seTodoList(todoList.filter((todo) => todo.id !== id));
+    setTodoList(todoList.filter((todo) => todo.id !== id));
   };
 
   const toggleTodo = (id) => {
-    seTodoList(
+    setTodoList(
       todoList.map((todo) => {
         if (todo.id === id) {
           return {
@@ -36,12 +36,27 @@ function TodoApp() {
   };
 
   const toggleTodoEdit = (id) => {
-    seTodoList(
+    setTodoList(
       todoList.map((todo) => {
         if (todo.id === id) {
           return {
             ...todo,
             edit: !todo.edit,
+          };
+        }
+        return todo;
+      })
+    );
+  };
+
+  const editTodo = (id, content) => {
+    setTodoList(
+      todoList.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            content, 
+            edit: false,
           };
         }
         return todo;
@@ -59,6 +74,7 @@ function TodoApp() {
           deleteTodo={deleteTodo}
           toggleTodo={toggleTodo}
           toggleTodoEdit={toggleTodoEdit}
+          editTodo={editTodo}
         />
       </div>
     </div>
