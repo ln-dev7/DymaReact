@@ -12,6 +12,7 @@ function TodoApp() {
       content,
       done: false,
       edit: false,
+      selected: false
     };
 
     setTodoList([...todoList, todo]);
@@ -64,6 +65,24 @@ function TodoApp() {
     );
   };
 
+  const selectTodo = (id) => {
+    setTodoList(
+      todoList.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            selected: !todo.selected,
+          };
+        } else {
+          return {
+            ...todo,
+            selected: false,
+          };
+        }
+      })
+    );
+  };
+
   return (
     <div>
       <h1>CHAP 9 - TODOLIST</h1>
@@ -75,6 +94,7 @@ function TodoApp() {
           toggleTodo={toggleTodo}
           toggleTodoEdit={toggleTodoEdit}
           editTodo={editTodo}
+          selectTodo={selectTodo}
         />
       </div>
     </div>

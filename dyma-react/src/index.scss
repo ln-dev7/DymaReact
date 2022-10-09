@@ -94,6 +94,7 @@ ul {
   margin: 1rem;
   border: 1px solid #000;
   border-radius: 1rem;
+  cursor: pointer;
 
   span {
     font-size: 24px;
@@ -101,6 +102,9 @@ ul {
   }
 }
 
+.selected {
+  border: 2px solid red;
+}
 // @media (prefers-color-scheme: light) {
 //   :root {
 //     color: #213547;

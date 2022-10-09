@@ -2,7 +2,7 @@ import React from "react";
 import EditTodo from "./EditTodo";
 import TodoItem from "./TodoItem";
 
-function TodoList({ todoList, deleteTodo, toggleTodo, toggleTodoEdit, editTodo }) {
+function TodoList({ todoList, deleteTodo, toggleTodo, toggleTodoEdit, editTodo, selectTodo }) {
   return todoList.length ? (
     <ul>
       {todoList.map((todo) =>
@@ -15,6 +15,7 @@ function TodoList({ todoList, deleteTodo, toggleTodo, toggleTodoEdit, editTodo }
             toggleTodoEdit={toggleTodoEdit}
             deleteTodo={deleteTodo}
             toggleTodo={toggleTodo}
+            selectTodo={selectTodo}
           />
         )
       )}
