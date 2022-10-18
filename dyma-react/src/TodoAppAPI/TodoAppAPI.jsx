@@ -6,26 +6,18 @@ import TodoList from "./components/TodoList";
 function TodoAppAPI() {
   const [todoList, setTodoList] = useState([]);
 
-  const addTodo = (content) => {
-    const todo = {
-      id: crypto.randomUUID(),
-      content,
-      done: false,
-      edit: false,
-      selected: false
-    };
-
+  const addTodo = (todo) => {
     setTodoList([...todoList, todo]);
   };
 
-  const deleteTodo = (id) => {
-    setTodoList(todoList.filter((todo) => todo.id !== id));
+  const deleteTodo = (_id) => {
+    setTodoList(todoList.filter((todo) => todo._id !== _id));
   };
 
-  const toggleTodo = (id) => {
+  const toggleTodo = (_id) => {
     setTodoList(
       todoList.map((todo) => {
-        if (todo.id === id) {
+        if (todo._id === _id) {
           return {
             ...todo,
             done: !todo.done,
@@ -36,10 +28,10 @@ function TodoAppAPI() {
     );
   };
 
-  const toggleTodoEdit = (id) => {
+  const toggleTodoEdit = (_id) => {
     setTodoList(
       todoList.map((todo) => {
-        if (todo.id === id) {
+        if (todo._id === _id) {
           return {
             ...todo,
             edit: !todo.edit,
@@ -50,13 +42,13 @@ function TodoAppAPI() {
     );
   };
 
-  const editTodo = (id, content) => {
+  const editTodo = (_id, content) => {
     setTodoList(
       todoList.map((todo) => {
-        if (todo.id === id) {
+        if (todo._id === _id) {
           return {
             ...todo,
-            content, 
+            content,
             edit: false,
           };
         }
@@ -65,10 +57,10 @@ function TodoAppAPI() {
     );
   };
 
-  const selectTodo = (id) => {
+  const selectTodo = (_id) => {
     setTodoList(
       todoList.map((todo) => {
-        if (todo.id === id) {
+        if (todo._id === _id) {
           return {
             ...todo,
             selected: !todo.selected,

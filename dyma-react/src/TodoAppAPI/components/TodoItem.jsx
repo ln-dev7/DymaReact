@@ -1,27 +1,36 @@
 import React from "react";
 
-function TodoItem({ todo, deleteTodo, toggleTodo, toggleTodoEdit, selectTodo }) {
+function TodoItem({
+  todo,
+  deleteTodo,
+  toggleTodo,
+  toggleTodoEdit,
+  selectTodo,
+}) {
   const handleDelete = (e) => {
     e.stopPropagation();
-    deleteTodo(todo.id);
+    deleteTodo(todo._id);
   };
 
   const handleTodoDone = (e) => {
     e.stopPropagation();
-    toggleTodo(todo.id);
+    toggleTodo(todo._id);
   };
 
   const handleTodoEdit = (e) => {
     e.stopPropagation();
-    toggleTodoEdit(todo.id);
+    toggleTodoEdit(todo._id);
   };
 
   const handleSelectTodo = (e) => {
     e.stopPropagation();
-    selectTodo(todo.id);
+    selectTodo(todo._id);
   };
   return (
-    <li className={`todo-item ${todo.selected ? "selected" : ''}`} onClick={handleSelectTodo}>
+    <li
+      className={`todo-item ${todo.selected ? "selected" : ""}`}
+      onClick={handleSelectTodo}
+    >
       <span>{todo.content}</span>
       <button onClick={(e) => handleTodoDone(e)}>
         {todo.done ? "Terminée" : "En cours"}
