@@ -47,10 +47,8 @@ function Home() {
           <div className="main-items">
             {recipes
               .filter((r) => r.title.toLowerCase().startsWith(filter))
-              .map((recipe, index) => {
-                return (
-                  <Recipe key={index} title={recipe.title} image={recipe.img} />
-                );
+              .map((recipe) => {
+                return <Recipe key={recipe._id} recipe={recipe} />;
               })}
             {recipes.filter((r) => r.title.toLowerCase().startsWith(filter))
               .length === 0 && <p>Aucune recette trouvée</p>}

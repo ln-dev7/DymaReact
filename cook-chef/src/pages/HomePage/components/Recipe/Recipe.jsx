@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Recipe.scss";
 
-function Recipe({ title, image }) {
-  const [liked, setLiked] = useState(false);
+function Recipe({ recipe: {_id, title, image, liked} }) {
   const isLiked = () => {
     setLiked(!liked);
   };
