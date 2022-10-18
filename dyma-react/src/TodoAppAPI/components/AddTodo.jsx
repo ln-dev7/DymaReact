@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function AddTodo({ addTodo }) {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -57,8 +57,8 @@ function AddTodo({ addTodo }) {
       <button onClick={handleClick}>
         {loading ? "Chargement ...." : "Ajouter"}
       </button>
-      {error && (
-        <p style={{ background: "red", color: "white" }}>Une erreur ...</p>
+      {error !== null && (
+        <p style={{ background: "red", color: "white" }}>{error}</p>
       )}
     </div>
   );
