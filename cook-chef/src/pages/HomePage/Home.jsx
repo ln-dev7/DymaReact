@@ -20,7 +20,7 @@ function Home() {
     async function fetchRecipes() {
       try {
         setIsLoading(true);
-        const response = await fetch(BASE_URL_API);
+        const response = await fetch(`${BASE_URL_API}?limit=12`);
         if (response.ok && !cancel) {
           const recipes = await response.json();
           setRecipes(recipes);
@@ -69,6 +69,23 @@ function Home() {
           <Loading />
         )}
       </div>
+      <button className="btn btn-secondary" style={{marginBottom: "20px"}}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>Charger plus</span>
+      </button>
     </main>
   );
 }
