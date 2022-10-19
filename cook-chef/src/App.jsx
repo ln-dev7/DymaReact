@@ -4,7 +4,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { seedRecipes } from './data/seed';
 
-// seedRecipes()
+//seedRecipes()
 
 function App() {
   return (

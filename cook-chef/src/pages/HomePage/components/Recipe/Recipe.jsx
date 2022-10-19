@@ -1,15 +1,35 @@
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
+import { ApiContext } from "../../../../context/ApiContext";
 import "./Recipe.scss";
 
-function Recipe({ recipe: {_id, title, image, liked} }) {
-  const isLiked = () => {
-    setLiked(!liked);
+function Recipe({ recipe: {_id, title, img, liked}, toggleLikedRecipe }) {
+  const BASE_URL_API = useContext(ApiContext)
+  async function isLiked() {
+    try {
+      const response = await fetch(`${BASE_URL_API}/${_id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          liked: !liked
+        })
+      })
+
+      if (response.ok) {
+        const updatedRecipe = await response.json()
+        toggleLikedRecipe(updatedRecipe)
+      }
+    } catch (e) {
+      console.log(e)
+    }
   };
   return (
     <div className="recipe">
       <div className="recipe-image">
-        <img src={image} alt="recipe" />
+        <img src={img} alt="recipe" />
       </div>
       <div className="recipe-footer">
         <h3>{title}</h3>

@@ -35,6 +35,12 @@ function Home() {
     return () => (cancel = true);
   }, [BASE_URL_API]);
 
+  function updatedRecipe(updatedRecipe) {
+    setRecipes(
+      recipes.map((r) => (r._id === updatedRecipe._id ? updatedRecipe : r))
+    );
+  }
+
   const filterRecipeWithInput = (e) => {
     setFilter(e.target.value.trim().toLowerCase()); // La méthode JavaScript trim() permet de retirer les espaces au début et à la fin d'une chaîne de caractères
   };
@@ -48,7 +54,13 @@ function Home() {
             {recipes
               .filter((r) => r.title.toLowerCase().startsWith(filter))
               .map((recipe) => {
-                return <Recipe key={recipe._id} recipe={recipe} />;
+                return (
+                  <Recipe
+                    key={recipe._id}
+                    recipe={recipe}
+                    toggleLikedRecipe={updatedRecipe}
+                  />
+                );
               })}
             {recipes.filter((r) => r.title.toLowerCase().startsWith(filter))
               .length === 0 && <p>Aucune recette trouvée</p>}
